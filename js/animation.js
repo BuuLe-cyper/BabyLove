@@ -20,11 +20,15 @@ function fadeIn(){
     }
 };
 
-
+function playAudio() {
+    var audio = document.getElementById("audio");
+    audio.play();
+}
 
 document.querySelector(".content").onclick=()=>{
     document.querySelector("#heart").hidden=false
     document.querySelector("body").style.backgroundColor="#542246"
     document.querySelector("#heart").hidden=false
     fadeIn()
+    playAudio()
 }
