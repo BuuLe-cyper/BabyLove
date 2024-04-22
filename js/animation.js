@@ -5,19 +5,22 @@ function fadeIn(){
     var txt;
     var html = [];
     var sp = 4;
+    
     for(;i<length;i+=sp) {
         txt = text.substring(i,i+sp);
-        html.push('<span class="c animated">' + txt + '</span>');
+        html.push('<span class="c animated" style="opacity: 0;">' + txt + '</span>');
     }
     $('.content').removeClass('c').html(html.join(''));
-
-    for(i = 0,length = html.length;i<length;i++) {
-        !function(i){
-            setTimeout(function(){
-                $('.content').find('.animated').eq(i).addClass('fadeIn');
-            },i*400);
-        }(i);
-    }
+    
+    setTimeout(function() {
+        for(i = 0,length = html.length;i<length;i++) {
+            !function(i){
+                setTimeout(function(){
+                    $('.content').find('.animated').eq(i).addClass('fadeIn');
+                },i*400);
+            }(i);
+        }
+    }, 2450); // 10 giây trì hoãn trước khi bắt đầu xuất hiện    
 };
 
 function playAudio() {
